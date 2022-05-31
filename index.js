@@ -7,9 +7,9 @@ const PORT = 5000;
 
 app.use((req, res, next) => {
   console.log("Request received");
-  console.log(`${req.method} ${req.path}`);
+  console.log(`${req.method} ${req.ip} ${req.path}`);
   res.on("finish", () => {
-    console.log(`${req.method} ${req.path} ${res.statusCode}`);
+    console.log(`${req.method} ${req.ip} ${req.path} ${res.statusCode}`);
   });
   next();
 });
